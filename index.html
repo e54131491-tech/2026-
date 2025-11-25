@@ -1,64 +1,551 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>2026 鳳凰科技教師研習營</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; }
-header { background:#8E0000; color:white; padding:40px 20px; text-align:center; }
-section { padding:20px; max-width:900px; margin:auto; }
-h2 { color:#8E0000; }
-footer { background:#eee; padding:20px; text-align:center; margin-top:40px; }
-button { background:#8E0000; color:white; border:none; padding:10px 20px; border-radius:5px; }
-</style>
+  <meta charset="UTF-8" />
+  <title>鳳凰科技高中教師研習營 | 成大電機系</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --main-red: #8e0000;
+      --light-bg: #f9f3f3;
+      --dark-text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+        "Microsoft JhengHei", sans-serif;
+      color: var(--dark-text);
+      line-height: 1.7;
+      background: #ffffff;
+    }
+
+    /* 導覽列 */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--main-red);
+      font-size: 1.05rem;
+    }
+
+    nav a {
+      margin-left: 12px;
+      text-decoration: none;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover {
+      color: var(--main-red);
+    }
+
+    /* Hero 區塊 */
+    .hero {
+      background: linear-gradient(135deg, #ffe6e6, #fff5f0);
+      padding: 48px 16px 32px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: var(--main-red);
+    }
+
+    .hero h2 {
+      margin: 0 0 16px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .hero p {
+      margin: 0 0 16px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      border: 1px solid #ffd3d3;
+      margin-bottom: 8px;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      font-size: 0.9rem;
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--main-red);
+      font-size: 1rem;
+    }
+
+    .hero-card p {
+      margin: 4px 0;
+    }
+
+    .primary-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 20px;
+      background: var(--main-red);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .primary-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* 通用 section 樣式 */
+    section {
+      padding: 40px 16px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+      color: var(--main-red);
+      border-left: 4px solid var(--main-red);
+      padding-left: 12px;
+    }
+
+    .section-subtitle {
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      border: 1px solid #eee;
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: var(--main-red);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .light-section {
+      background: var(--light-bg);
+    }
+
+    /* 課程三大面向 */
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      background: #fff0f0;
+      color: var(--main-red);
+      margin-bottom: 6px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 18px;
+    }
+
+    /* 報名區塊 */
+    .register-box {
+      text-align: center;
+      padding: 24px 18px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px dashed #ffb3b3;
+      font-size: 0.95rem;
+    }
+
+    .register-box p {
+      margin: 6px 0;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #eee;
+      padding: 24px 16px 16px;
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+
+    .footer-top h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #ffd4d4;
+    }
+
+    .footer-links a {
+      color: #ffd4d4;
+      text-decoration: none;
+      margin-right: 12px;
+      display: inline-block;
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 8px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* RWD */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- 導覽列 -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">鳳凰科技高中教師研習營</div>
+      <nav>
+        <a href="#home">首頁</a>
+        <a href="#about">關於研習營</a>
+        <a href="#info">活動資訊</a>
+        <a href="#curriculum">課程介紹</a>
+        <a href="#register">報名專區</a>
+        <a href="#links">相關連結</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <h1>2026 鳳凰科技教師研習營</h1>
-  <p>國立成功大學電機工程學系主辦</p>
-</header>
+  <!-- Hero 區 -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag">高中教師專屬 · 兩天一夜沉浸式研習</span>
+        <h1>2026 鳳凰科技教師研習營</h1>
+        <h2>認識成大電機 × 帶走教學靈感 × 建立合作網絡</h2>
+        <p>
+          透過系所簡報、科技講座、實驗室參訪與手作藍芽音響，協助高中教師快速掌握電資領域脈動，並帶回可直接應用在課堂的實作活動。
+        </p>
+        <a class="primary-btn" href="#register">前往報名專區</a>
+      </div>
+      <div class="hero-card">
+        <h3>研習營重點資訊</h3>
+        <p><strong>活動時間：</strong>115 年 1 月 28 日（週三）– 1 月 29 日（週四）</p>
+        <p><strong>報到與賦歸：</strong>Day 1 上午 10:20 報到；Day 2 下午 13:30 賦歸</p>
+        <p><strong>活動地點：</strong>成大電機系館、啟端館 Open Lab（台南市東區大學路 1 號）</p>
+        <p><strong>研習費用：</strong>全程免費，提供教材、午餐、晚宴與住宿</p>
+        <p><strong>適合對象：</strong>全國高中／高職自然、物理、資訊科技、生活科技等教師</p>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>📌 活動簡介</h2>
-  <p>本研習營旨在讓全國高中教師了解成大電機系的學術發展、實驗室特色、以及可帶回課堂的實作教材。</p>
-</section>
+  <!-- 關於研習營 -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title">關於研習營</h2>
+      <p class="section-subtitle">
+        以高中教師為核心設計，從電資趨勢介紹、課堂實作示範到教師交流，兩天一夜完整串聯成大電機系的教學與研究亮點。
+      </p>
+      <div class="info-grid">
+        <div class="card">
+          <h3>電資沉浸體驗</h3>
+          <p>
+            濃縮呈現成大電機系的研究方向與學生培育特色，讓教師可以更精準回應學生的升學提問與學群探索。
+          </p>
+        </div>
+        <div class="card">
+          <h3>可帶回的實作課程</h3>
+          <p>
+            手作藍芽音響示範如何整合電路、創客工具與設計思考，讓老師能將活動改編為校內社團或課程。
+          </p>
+        </div>
+        <div class="card">
+          <h3>跨校教育社群</h3>
+          <p>
+            午餐、晚宴與座談時段刻意保留交流空間，建立與成大師長及各校教師之間的長期合作管道。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>📅 活動日期</h2>
-  <p>115/1/28（Wed.）－ 115/1/29（Thu.）</p>
-</section>
+  <!-- 活動資訊 -->
+  <section id="info" class="light-section">
+    <div class="section-inner">
+      <h2 class="section-title">活動資訊</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>活動時間</h3>
+          <ul>
+            <li>115/1/28（Wed.）– 115/1/29（Thu.）</li>
+            <li>Day 1：10:20 報到 ～ 晚宴</li>
+            <li>Day 2：09:00 起課程與參訪，13:30 賦歸</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>活動地點與交通</h3>
+          <p>主要場地：成大電機系館、啟端館 Open Lab</p>
+          <p>地址：台南市東區大學路 1 號</p>
+          <p>建議交通：自行開車或搭乘計程車，由成功大學自強校區側門進入。</p>
+        </div>
+        <div class="card">
+          <h3>研習費用與名額</h3>
+          <ul>
+            <li>全程免費，採線上報名與錄取通知制</li>
+            <li>包含課程教材、午餐、Day 1 晚宴與住宿</li>
+            <li>名額有限，額滿即截止報名</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>📍 活動地點</h2>
-  <ul>
-    <li>成功大學自強校區電機系館</li>
-    <li>啟端館 Open Lab</li>
-    <li>太子文旅（住宿）</li>
-    <li>台南遠東香格里拉（晚宴）</li>
-  </ul>
-</section>
+  <!-- 課程介紹 -->
+  <section id="curriculum">
+    <div class="section-inner">
+      <h2 class="section-title">高中教師研習營課程</h2>
+      <p class="section-subtitle">
+        兩天一夜的安排從系所簡報、科技講座到實作與參訪，協助教師掌握電資脈動，也能帶回可執行的課堂活動。
+      </p>
 
-<section>
-  <h2>📝 活動流程</h2>
-  <p><b>Day 1：</b> 系所介紹、科技講座、DIY 藍芽音響、晚宴</p>
-  <p><b>Day 2：</b> 招生講座、科技講座、實驗室參訪、座談</p>
-</section>
+      <div class="info-grid">
+        <div class="card">
+          <span class="pill">壹、掌握電資趨勢</span>
+          <h3>認識成大電機與招生重點</h3>
+          <p>
+            由電資學院與招生團隊說明系所發展與入學管道，濃縮介紹研究主題與學生學習資源。
+          </p>
+          <strong>對應行程</strong>
+          <ul>
+            <li>電資學院系所介紹</li>
+            <li>招生講座</li>
+            <li>實驗室導覽</li>
+          </ul>
+        </div>
 
-<section>
-  <h2>🧾 報名方式</h2>
-  <p>將在 2025 年 11 月開放，敬請期待。</p>
-</section>
+        <div class="card">
+          <span class="pill">貳、更新教學實作</span>
+          <h3>手作藍芽音響與科技講座</h3>
+          <p>
+            以藍芽音響為主題，示範如何把雷射切割、電子電路與創客精神結合，並搭配科技講座啟發課程設計。
+          </p>
+          <strong>對應行程</strong>
+          <ul>
+            <li>手作藍芽音響課程</li>
+            <li>科技主題講座</li>
+          </ul>
+        </div>
 
-<section>
-  <h2>📞 聯絡方式</h2>
-  <p>電機系辦公室 — （06）2757575 #62300</p>
-</section>
+        <div class="card">
+          <span class="pill">參、拓展教育社群</span>
+          <h3>教師交流與合作</h3>
+          <p>
+            透過午餐、晚宴與座談，媒合不同學校的教師彼此分享教學經驗與招生宣講素材。
+          </p>
+          <strong>對應行程</strong>
+          <ul>
+            <li>午餐與晚宴交流</li>
+            <li>Coffee Break 與賦歸前座談</li>
+            <li>活動總結與心得分享</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  © 2026 鳳凰科技教師研習營｜國立成功大學電機系
-</footer>
+  <!-- 報名專區 -->
+  <section id="register" class="light-section">
+    <div class="section-inner">
+      <h2 class="section-title">報名專區（教師）</h2>
+      <div class="register-box">
+        <p>本研習營採線上報名，請使用 Google 帳號登入報名表單。</p>
+        <p>錄取結果將以電子郵件通知，並附上詳細行前資訊與注意事項。</p>
+        <a
+          class="primary-btn"
+          href="https://docs.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          前往線上報名表（示意連結，請自行更換）
+        </a>
+        <p class="note">
+          ※ 請確認所填聯絡信箱正確，以免錯過錄取與行前通知。
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <!-- 相關連結 -->
+  <section id="links">
+    <div class="section-inner">
+      <h2 class="section-title">相關連結</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>成大電機系官網</h3>
+          <p>了解更多系所介紹、課程規劃與師資陣容。</p>
+          <p>
+            <a href="https://www.ee.ncku.edu.tw/" target="_blank" rel="noopener noreferrer">
+              https://www.ee.ncku.edu.tw/
+            </a>
+          </p>
+        </div>
+        <div class="card">
+          <h3>成大電機系友會</h3>
+          <p>與畢業系友的連結與活動資訊。</p>
+          <p>
+            <a href="https://eealum.ee.ncku.edu.tw/" target="_blank" rel="noopener noreferrer">
+              https://eealum.ee.ncku.edu.tw/
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 聯絡我們 -->
+  <section id="contact" class="light-section">
+    <div class="section-inner">
+      <h2 class="section-title">聯絡我們</h2>
+      <div class="two-col">
+        <div>
+          <p><strong>承辦人：</strong>蕭小姐</p>
+          <p><strong>聯絡電話：</strong>06-2757575 ext.62301</p>
+          <p><strong>E-mail：</strong>z11108176@ncku.edu.tw</p>
+        </div>
+        <div>
+          <p><strong>辦公室地址：</strong></p>
+          <p>國立成功大學電機工程學系</p>
+          <p>台南市東區大學路 1 號（自強校區 電機系館）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <h3>鳳凰科技教師研習營</h3>
+          <p>點燃學生的科技想像，也為教師帶回新的教學能量。</p>
+        </div>
+        <div class="footer-links">
+          <h3>快速連結</h3>
+          <a href="#about">關於研習營</a>
+          <a href="#curriculum">課程介紹</a>
+          <a href="#info">活動資訊</a>
+          <a href="#register">立即報名</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        主辦單位：國立成功大學電機工程學系　
+        協辦單位：財團法人成電文教基金會　
+        活動時間：115/1/28(Wed.) - 1/29(Thu.)<br />
+        © 2026 鳳凰科技研習營 All Rights Reserved.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
