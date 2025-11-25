@@ -2,13 +2,25 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>鳳凰科技高中教師研習營 | 成大電機系</title>
+  <title>2026 鳳凰科技教師研習營 | 國立成功大學電機工程學系</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="國立成功大學電機工程學系主辦的 2026 鳳凰科技教師研習營，針對全國高中教師設計的兩天一夜研習活動，結合理論、實作與實驗室參訪，協助教師掌握電資與 AI 教育趨勢。"
+  />
   <style>
     :root {
-      --main-red: #8e0000;
-      --light-bg: #f9f3f3;
-      --dark-text: #333;
+      --ee-red: #8e0000;
+      --ee-orange: #ff8a4a;
+      --ee-blue: #2563eb;
+      --bg-body: #050816;
+      --bg-section: #0b1020;
+      --bg-card: #111827;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2937;
+      --radius-lg: 16px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -19,531 +31,985 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
         "Microsoft JhengHei", sans-serif;
-      color: var(--dark-text);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
       line-height: 1.7;
-      background: #ffffff;
     }
 
-    /* 導覽列 */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== Top nav ===== */
     header {
       position: sticky;
       top: 0;
-      z-index: 999;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #eee;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        90deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.9)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .nav-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-weight: 700;
-      color: var(--main-red);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffe4e6 0, #fb7185 40%, #7f1d1d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #fef2f2;
+      box-shadow: 0 0 0 2px rgba(148, 27, 53, 0.9);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.88rem;
     }
 
     nav a {
-      margin-left: 12px;
-      text-decoration: none;
-      color: #555;
-      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
     }
 
     nav a:hover {
-      color: var(--main-red);
+      background: rgba(37, 99, 235, 0.12);
+      color: #e5e7eb;
+      transform: translateY(-1px);
     }
 
-    /* Hero 區塊 */
-    .hero {
-      background: linear-gradient(135deg, #ffe6e6, #fff5f0);
-      padding: 48px 16px 32px;
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      margin: 0 0 12px;
-      font-size: 2rem;
-      color: var(--main-red);
-    }
-
-    .hero h2 {
-      margin: 0 0 16px;
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    .hero p {
-      margin: 0 0 16px;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      background: #ffffff;
-      border-radius: 999px;
-      padding: 4px 12px;
-      font-size: 0.8rem;
-      border: 1px solid #ffd3d3;
-      margin-bottom: 8px;
-    }
-
-    .hero-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-      font-size: 0.9rem;
-    }
-
-    .hero-card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: var(--main-red);
-      font-size: 1rem;
-    }
-
-    .hero-card p {
-      margin: 4px 0;
-    }
-
-    .primary-btn {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 10px 20px;
-      background: var(--main-red);
-      color: white;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .primary-btn:hover {
-      opacity: 0.9;
-    }
-
-    /* 通用 section 樣式 */
+    /* ===== Layout helpers ===== */
     section {
-      padding: 40px 16px 24px;
+      padding: 36px 16px 28px;
     }
 
     .section-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
     }
 
     h2.section-title {
-      margin-top: 0;
-      margin-bottom: 12px;
+      margin: 0 0 10px;
       font-size: 1.4rem;
-      color: var(--main-red);
-      border-left: 4px solid var(--main-red);
-      padding-left: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title span.bar {
+      display: inline-block;
+      width: 44px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--ee-orange), var(--ee-blue));
     }
 
     .section-subtitle {
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-      color: #666;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 16px 18px;
-      border: 1px solid #eee;
+      margin: 0 0 18px;
       font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 40px 16px 32px;
+      background: radial-gradient(circle at top left, #1d283a 0, #020617 55%, #000 100%);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(37, 99, 235, 0.12);
+      color: #bfdbfe;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      margin-bottom: 10px;
+    }
+
+    .kicker-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      margin: 0 0 6px;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 16px;
+      font-size: 1.02rem;
+      color: #e5e7eb;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--ee-orange), var(--ee-red));
+      color: #111827;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 10px 30px rgba(248, 113, 113, 0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-main);
+      font-size: 0.86rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(31, 41, 55, 0.95);
+    }
+
+    .hero-meta {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.85);
+      color: #e5e7eb;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-banner {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top, #f97316 0, #7c2d12 40%, #020617 100%);
+      min-height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-tag {
+      position: absolute;
+      bottom: -12px;
+      left: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-tag strong {
+      color: #e5e7eb;
+    }
+
+    /* ===== Cards & lists ===== */
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 18px;
+      font-size: 0.9rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 8px;
       font-size: 1rem;
-      color: var(--main-red);
+      color: #f9fafb;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+      background: rgba(37, 99, 235, 0.13);
+      color: #bfdbfe;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #38bdf8;
     }
 
     ul {
+      margin: 6px 0 0;
       padding-left: 20px;
-      margin-top: 4px;
+      color: var(--text-muted);
     }
 
     li {
       margin-bottom: 4px;
     }
 
-    .light-section {
-      background: var(--light-bg);
-    }
-
-    /* 課程三大面向 */
-    .pill {
-      display: inline-block;
-      padding: 2px 8px;
-      font-size: 0.8rem;
-      border-radius: 999px;
-      background: #fff0f0;
-      color: var(--main-red);
-      margin-bottom: 6px;
-    }
-
-    .two-col {
+    /* ===== Schedule table ===== */
+    .schedule-grid {
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
     }
 
-    /* 報名區塊 */
+    .schedule-day-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    table.schedule {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .schedule th,
+    .schedule td {
+      padding: 6px 6px;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.7);
+      vertical-align: top;
+    }
+
+    .schedule th {
+      font-weight: 500;
+      color: #e5e7eb;
+      text-align: left;
+    }
+
+    .schedule tr:last-child td {
+      border-bottom: none;
+    }
+
+    .schedule-time {
+      white-space: nowrap;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    /* ===== Register / gallery / contact ===== */
     .register-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .register-note {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .qr-wrapper {
+      justify-self: center;
       text-align: center;
-      padding: 24px 18px;
-      background: #fff;
-      border-radius: 14px;
-      border: 1px dashed #ffb3b3;
-      font-size: 0.95rem;
-    }
-
-    .register-box p {
-      margin: 6px 0;
-    }
-
-    .note {
       font-size: 0.8rem;
-      color: #777;
+      color: var(--text-muted);
     }
 
-    /* Footer */
+    .qr-wrapper img {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: #f9fafb;
+      padding: 8px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.4),
+        transparent
+      );
+    }
+
+    .info-pairs {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .info-pairs p {
+      margin: 4px 0;
+      color: var(--text-muted);
+    }
+
+    /* ===== Footer ===== */
     footer {
-      background: #222;
-      color: #eee;
-      padding: 24px 16px 16px;
-      font-size: 0.85rem;
+      border-top: 1px solid rgba(55, 65, 81, 0.85);
       margin-top: 40px;
+      padding: 20px 16px 18px;
+      background: #020617;
+      font-size: 0.8rem;
+      color: #9ca3af;
     }
 
     .footer-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .footer-top {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
-      gap: 18px;
-      margin-bottom: 12px;
-    }
-
-    .footer-top h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1rem;
-      color: #ffd4d4;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .footer-links a {
-      color: #ffd4d4;
-      text-decoration: none;
-      margin-right: 12px;
-      display: inline-block;
-      margin-bottom: 4px;
-      font-size: 0.85rem;
+      margin-right: 10px;
+      color: #9ca3af;
+      font-size: 0.8rem;
     }
 
     .footer-links a:hover {
+      color: #e5e7eb;
       text-decoration: underline;
     }
 
-    .footer-bottom {
-      border-top: 1px solid #444;
-      padding-top: 8px;
-      font-size: 0.8rem;
-      color: #aaa;
+    /* ===== Responsive ===== */
+    @media (max-width: 880px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 28px;
+      }
     }
 
-    /* RWD */
     @media (max-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-      .two-col {
-        grid-template-columns: 1fr;
+      .grid-2,
+      .schedule-grid,
+      .register-box,
+      .info-pairs {
+        grid-template-columns: minmax(0, 1fr);
       }
       nav {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
+        justify-content: flex-start;
       }
-      nav a {
-        margin-left: 0;
-        margin-right: 8px;
+      .hero-title {
+        font-size: 1.7rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 導覽列 -->
+  <!-- ===== 導覽列 ===== -->
   <header>
     <div class="nav-inner">
-      <div class="brand">鳳凰科技高中教師研習營</div>
+      <div class="brand">
+        <div class="brand-mark">EE</div>
+        <div>2026 鳳凰科技教師研習營 · NCKU</div>
+      </div>
       <nav>
-        <a href="#home">首頁</a>
         <a href="#about">關於研習營</a>
+        <a href="#highlights">課程與活動亮點</a>
         <a href="#info">活動資訊</a>
-        <a href="#curriculum">課程介紹</a>
-        <a href="#register">報名專區</a>
-        <a href="#links">相關連結</a>
-        <a href="#contact">聯絡我們</a>
+        <a href="#schedule">兩天一夜行程</a>
+        <a href="#register">報名方式</a>
+        <a href="#gallery">活動花絮</a>
+        <a href="#contact">聯絡與主辦</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero 區 -->
-  <section id="home" class="hero">
+  <!-- ===== Hero 區 ===== -->
+  <section class="hero" id="top">
     <div class="hero-inner">
       <div>
-        <span class="hero-tag">高中教師專屬 · 兩天一夜沉浸式研習</span>
-        <h1>2026 鳳凰科技教師研習營</h1>
-        <h2>認識成大電機 × 帶走教學靈感 × 建立合作網絡</h2>
-        <p>
-          透過系所簡報、科技講座、實驗室參訪與手作藍芽音響，協助高中教師快速掌握電資領域脈動，並帶回可直接應用在課堂的實作活動。
+        <div class="kicker">
+          <span class="kicker-dot"></span>
+          高中教師專屬 · 兩天一夜電機與科技教育研習
+        </div>
+        <h1 class="hero-title">2026 鳳凰科技教師研習營</h1>
+        <p class="hero-subtitle">從電機到 AI，協助高中教師掌握電資新趨勢，帶回可落實於課堂的實作課程與教材。</p>
+        <p class="hero-note">
+          研習結合理論簡報、科技講座、實驗室參訪與 DIY 藍芽音響課程，讓教師在兩天內完整認識成大電機系的教學與研究環境，也能直接感受到學生在大學所接觸的科技領域。
         </p>
-        <a class="primary-btn" href="#register">前往報名專區</a>
+
+        <div class="hero-actions">
+          <a href="#register" class="btn-primary">
+            立即前往報名專區
+            <span>↗</span>
+          </a>
+          <a href="#schedule" class="btn-secondary">
+            查看詳細行程
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>📅 活動時間：2026 / 1 / 28（Wed.）– 1 / 29（Thu.）</span>
+          <span>📍 研習地點：國立成功大學自強校區電機系館</span>
+        </div>
+        <div class="hero-meta" style="margin-top:6px;">
+          <span class="badge">
+            <span class="badge-dot"></span>
+            全程免費 · 提供午餐與晚宴、太子文旅住宿
+          </span>
+        </div>
       </div>
-      <div class="hero-card">
-        <h3>研習營重點資訊</h3>
-        <p><strong>活動時間：</strong>115 年 1 月 28 日（週三）– 1 月 29 日（週四）</p>
-        <p><strong>報到與賦歸：</strong>Day 1 上午 10:20 報到；Day 2 下午 13:30 賦歸</p>
-        <p><strong>活動地點：</strong>成大電機系館、啟端館 Open Lab（台南市東區大學路 1 號）</p>
-        <p><strong>研習費用：</strong>全程免費，提供教材、午餐、晚宴與住宿</p>
-        <p><strong>適合對象：</strong>全國高中／高職自然、物理、資訊科技、生活科技等教師</p>
+
+      <div class="hero-media">
+        <div class="hero-banner">
+          <!-- 請將 2026 教師營海報圖檔上傳並命名為 banner-2026.png -->
+          <img src="banner-2026.png" alt="2026 鳳凰科技教師研習營主視覺" />
+        </div>
+        <div class="hero-tag">
+          <strong>對象：</strong>全國高中 / 高職自然科、物理、資訊科技、生活科技等相關領域教師
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 關於研習營 -->
+  <!-- ===== 關於研習營 ===== -->
   <section id="about">
     <div class="section-inner">
-      <h2 class="section-title">關於研習營</h2>
+      <h2 class="section-title">
+        <span class="bar"></span> ABOUT · 關於研習營
+      </h2>
       <p class="section-subtitle">
-        以高中教師為核心設計，從電資趨勢介紹、課堂實作示範到教師交流，兩天一夜完整串聯成大電機系的教學與研究亮點。
-      </p>
-      <div class="info-grid">
-        <div class="card">
-          <h3>電資沉浸體驗</h3>
-          <p>
-            濃縮呈現成大電機系的研究方向與學生培育特色，讓教師可以更精準回應學生的升學提問與學群探索。
-          </p>
-        </div>
-        <div class="card">
-          <h3>可帶回的實作課程</h3>
-          <p>
-            手作藍芽音響示範如何整合電路、創客工具與設計思考，讓老師能將活動改編為校內社團或課程。
-          </p>
-        </div>
-        <div class="card">
-          <h3>跨校教育社群</h3>
-          <p>
-            午餐、晚宴與座談時段刻意保留交流空間，建立與成大師長及各校教師之間的長期合作管道。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 活動資訊 -->
-  <section id="info" class="light-section">
-    <div class="section-inner">
-      <h2 class="section-title">活動資訊</h2>
-      <div class="info-grid">
-        <div class="card">
-          <h3>活動時間</h3>
-          <ul>
-            <li>115/1/28（Wed.）– 115/1/29（Thu.）</li>
-            <li>Day 1：10:20 報到 ～ 晚宴</li>
-            <li>Day 2：09:00 起課程與參訪，13:30 賦歸</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>活動地點與交通</h3>
-          <p>主要場地：成大電機系館、啟端館 Open Lab</p>
-          <p>地址：台南市東區大學路 1 號</p>
-          <p>建議交通：自行開車或搭乘計程車，由成功大學自強校區側門進入。</p>
-        </div>
-        <div class="card">
-          <h3>研習費用與名額</h3>
-          <ul>
-            <li>全程免費，採線上報名與錄取通知制</li>
-            <li>包含課程教材、午餐、Day 1 晚宴與住宿</li>
-            <li>名額有限，額滿即截止報名</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 課程介紹 -->
-  <section id="curriculum">
-    <div class="section-inner">
-      <h2 class="section-title">高中教師研習營課程</h2>
-      <p class="section-subtitle">
-        兩天一夜的安排從系所簡報、科技講座到實作與參訪，協助教師掌握電資脈動，也能帶回可執行的課堂活動。
+        「鳳凰科技教師研習營」由國立成功大學電機工程學系主辦，延續過往幾屆活動成果，以高中現場教學需求為核心，從電機與資訊領域的發展、實作課程設計，到升學與學群探索，提供一套完整的教師專業成長平台。
       </p>
 
-      <div class="info-grid">
+      <div class="grid grid-2">
         <div class="card">
-          <span class="pill">壹、掌握電資趨勢</span>
-          <h3>認識成大電機與招生重點</h3>
+          <span class="pill">
+            <span class="pill-dot"></span>
+            研習定位
+          </span>
+          <h3>連結高中課室與大學電機現場</h3>
           <p>
-            由電資學院與招生團隊說明系所發展與入學管道，濃縮介紹研究主題與學生學習資源。
+            活動不只是單向的系所介紹，而是希望讓教師在了解成大電機系研究與課程設計的同時，也能思考如何將概念轉化為適合高中授課的主題與活動。
           </p>
-          <strong>對應行程</strong>
           <ul>
-            <li>電資學院系所介紹</li>
-            <li>招生講座</li>
-            <li>實驗室導覽</li>
+            <li>掌握電機與 AI 相關學群與系所特色</li>
+            <li>理解學生進入大學後所面臨的課程與學習模式</li>
+            <li>作為未來校園講座或家長說明會的第一手素材</li>
           </ul>
         </div>
 
         <div class="card">
-          <span class="pill">貳、更新教學實作</span>
-          <h3>手作藍芽音響與科技講座</h3>
+          <span class="pill">
+            <span class="pill-dot"></span>
+            參與效益
+          </span>
+          <h3>帶得走的教材、帶得回去的故事</h3>
           <p>
-            以藍芽音響為主題，示範如何把雷射切割、電子電路與創客精神結合，並搭配科技講座啟發課程設計。
+            研習中特別安排 DIY 藍芽音響課程與實驗室參訪，希望教師在兩天內同時帶走「可操作的實作流程」與「可以跟學生分享的大學故事」，作為日後引導學生探索電資領域的素材。
           </p>
-          <strong>對應行程</strong>
           <ul>
-            <li>手作藍芽音響課程</li>
-            <li>科技主題講座</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="pill">參、拓展教育社群</span>
-          <h3>教師交流與合作</h3>
-          <p>
-            透過午餐、晚宴與座談，媒合不同學校的教師彼此分享教學經驗與招生宣講素材。
-          </p>
-          <strong>對應行程</strong>
-          <ul>
-            <li>午餐與晚宴交流</li>
-            <li>Coffee Break 與賦歸前座談</li>
-            <li>活動總結與心得分享</li>
+            <li>拿回一套可改編為社團或課程的實作活動</li>
+            <li>獲得成大電機系最新研究與招生資訊</li>
+            <li>建立與成大師長、各校教師的長期合作管道</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 報名專區 -->
-  <section id="register" class="light-section">
+  <!-- ===== 課程與活動亮點 ===== -->
+  <section id="highlights">
     <div class="section-inner">
-      <h2 class="section-title">報名專區（教師）</h2>
-      <div class="register-box">
-        <p>本研習營採線上報名，請使用 Google 帳號登入報名表單。</p>
-        <p>錄取結果將以電子郵件通知，並附上詳細行前資訊與注意事項。</p>
-        <a
-          class="primary-btn"
-          href="https://docs.google.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          前往線上報名表（示意連結，請自行更換）
-        </a>
-        <p class="note">
-          ※ 請確認所填聯絡信箱正確，以免錯過錄取與行前通知。
-        </p>
+      <h2 class="section-title">
+        <span class="bar"></span> HIGHLIGHTS · 課程與活動亮點
+      </h2>
+      <p class="section-subtitle">
+        課程設計以「電資趨勢」、「實作體驗」與「教師交流」三個面向為軸線，讓參與教師在有限時間內獲得最完整的資訊與體驗。
+      </p>
+
+      <div class="grid" style="grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:16px;">
+        <div class="card">
+          <span class="pill">
+            <span class="pill-dot"></span>
+            電資與 AI 發展
+          </span>
+          <h3>電資學院與招生趨勢說明</h3>
+          <p>
+            由師長與招生團隊介紹電資學院與電機系的發展方向、課程規劃、研究領域與入學管道，協助教師在輔導學生升學時有更清楚的資訊基礎。
+          </p>
+          <ul>
+            <li>系所與學程簡介</li>
+            <li>多元入學與學群連結</li>
+            <li>學生學習與就業發展案例</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="pill">
+            <span class="pill-dot"></span>
+            實作與課程設計
+          </span>
+          <h3>DIY 藍芽音響：從電路到成品</h3>
+          <p>
+            透過手作藍芽音響課程體驗簡易電路、雷射切割與組裝流程，示範如何把抽象的電機概念轉化為具體可見、可操作的專題活動。
+          </p>
+          <ul>
+            <li>實際操作焊接與組裝步驟</li>
+            <li>示範課程拆解與時間配置</li>
+            <li>討論如何調整為高中場域可行的版本</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="pill">
+            <span class="pill-dot"></span>
+            交流與參訪
+          </span>
+          <h3>科技講座 × 實驗室導覽 × 教師座談</h3>
+          <p>
+            透過系上研究主題講座與實驗室參訪，讓教師直接與師生對話，了解目前研究主軸與學生參與方式，並保留充足時間進行心得與教學經驗交流。
+          </p>
+          <ul>
+            <li>科技主題講座兩場</li>
+            <li>電機系實驗室參訪與設備介紹</li>
+            <li>午餐與晚宴中的非正式交流時段</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 相關連結 -->
-  <section id="links">
+  <!-- ===== 活動資訊 ===== -->
+  <section id="info">
     <div class="section-inner">
-      <h2 class="section-title">相關連結</h2>
-      <div class="info-grid">
+      <h2 class="section-title">
+        <span class="bar"></span> INFO · 活動資訊
+      </h2>
+      <p class="section-subtitle">
+        本研習營採全程免費、事先報名與錄取通知制，名額有限，歡迎有興趣的高中與高職教師踴躍參與。
+      </p>
+
+      <div class="grid grid-2">
         <div class="card">
-          <h3>成大電機系官網</h3>
-          <p>了解更多系所介紹、課程規劃與師資陣容。</p>
+          <h3>基本資訊</h3>
+          <ul>
+            <li><strong>活動日期：</strong>115 / 1 / 28（Wed.）– 115 / 1 / 29（Thu.）</li>
+            <li><strong>活動時間：</strong>Day 1 上午 10:20 報到；Day 2 下午 13:30 賦歸</li>
+            <li><strong>活動地點：</strong>國立成功大學自強校區電機系館、啟端館 Open Lab</li>
+            <li><strong>住宿安排：</strong>太子文旅（供外地教師住宿）</li>
+            <li><strong>晚宴地點：</strong>台南遠東香格里拉</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>對象與名額</h3>
+          <ul>
+            <li>對象：全國高中 / 高職自然、物理、資訊科技、生活科技等相關科目教師</li>
+            <li>名額：視場地與住宿容量配置，額滿即停止受理報名</li>
+            <li>費用：全程免費，提供課程教材、午餐、晚宴與住宿</li>
+            <li>研習時數：會後依規定核發研習證明（依實際出席情形）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 行程表 ===== -->
+  <section id="schedule">
+    <div class="section-inner">
+      <h2 class="section-title">
+        <span class="bar"></span> SCHEDULE · 兩天一夜行程
+      </h2>
+      <p class="section-subtitle">
+        以下為暫定流程，實際場地與講師安排將視系上時程與報名狀況做微調，最新資訊會於錄取通知信件與本頁公告。
+      </p>
+
+      <div class="schedule-grid">
+        <div class="card">
+          <div class="schedule-day-title">Day 1 · 115 / 1 / 28（Wed.）</div>
+          <table class="schedule">
+            <thead>
+              <tr>
+                <th style="width:32%;">時間</th>
+                <th style="width:15%;">分鐘</th>
+                <th>活動內容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="schedule-time">10:20–10:50</td>
+                <td>30</td>
+                <td>歡喜相逢－成功大學自強校區電機系報到</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">10:50–12:00</td>
+                <td>70</td>
+                <td>系所介紹</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">12:00–12:10</td>
+                <td>10</td>
+                <td>大合照</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">12:10–13:10</td>
+                <td>60</td>
+                <td>美味午餐</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">13:10–13:55</td>
+                <td>45</td>
+                <td>科技講座</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">13:55–14:00</td>
+                <td>5</td>
+                <td>換場 &amp; 休息</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">14:00–17:00</td>
+                <td>180</td>
+                <td>手作藍芽音響課程</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">17:00–17:30</td>
+                <td>30</td>
+                <td>住宿教師前往太子文旅 Check-in</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">18:00–20:30</td>
+                <td>120</td>
+                <td>晚宴（地點：台南遠東香格里拉）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="schedule-day-title">Day 2 · 115 / 1 / 29（Thu.）</div>
+          <table class="schedule">
+            <thead>
+              <tr>
+                <th style="width:32%;">時間</th>
+                <th style="width:15%;">分鐘</th>
+                <th>活動內容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="schedule-time">08:30–09:00</td>
+                <td>30</td>
+                <td>
+                  太子文旅一樓廣場集合，步行至電機系館<br />
+                  <span style="font-size:0.78rem;color:var(--text-muted);">
+                    （行李可先寄放於飯店大廳）
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="schedule-time">09:00–09:50</td>
+                <td>50</td>
+                <td>招生講座</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">09:50–10:00</td>
+                <td>10</td>
+                <td>Break</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">10:00–10:45</td>
+                <td>45</td>
+                <td>科技講座</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">10:45–11:00</td>
+                <td>15</td>
+                <td>Coffee Break</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">11:00–12:00</td>
+                <td>60</td>
+                <td>系所導覽－實驗室參觀</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">12:00–13:30</td>
+                <td>90</td>
+                <td>午餐與交流座談</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">13:30</td>
+                <td>—</td>
+                <td>賦歸 · 2026 鳳凰科技教師研習營圓滿結束</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 報名專區 ===== -->
+  <section id="register">
+    <div class="section-inner">
+      <h2 class="section-title">
+        <span class="bar"></span> REGISTER · 報名方式
+      </h2>
+      <p class="section-subtitle">
+        報名採線上表單方式，請以學校信箱（或可辨識身分之 Email）填寫資料。錄取與候補名單將以電子郵件通知。
+      </p>
+
+      <div class="card register-box">
+        <div>
+          <h3>線上報名表單</h3>
           <p>
+            請點選下方按鈕，或使用右側 QR code 進入報名頁面。建議以電腦填寫，以利確認資料無誤。
+          </p>
+          <p>
+            <a
+              href="https://docs.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+            >
+              前往報名表單（請換成實際連結）
+            </a>
+          </p>
+          <p class="register-note">
+            ※ 若報名後欲修改資料，請直接回信承辦人信箱說明。<br />
+            ※ 錄取公告與行前通知將寄送至報名時所填寫之 Email。
+          </p>
+        </div>
+
+        <div class="qr-wrapper">
+          <!-- 請將報名 QR code 圖片上傳並命名為 register-qr.png -->
+          <img src="register-qr.png" alt="2026 鳳凰科技教師研習營報名 QR code" />
+          <div style="margin-top:6px;">手機掃描 QR code 即可快速報名</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 活動花絮 ===== -->
+  <section id="gallery">
+    <div class="section-inner">
+      <h2 class="section-title">
+        <span class="bar"></span> GALLERY · 活動花絮
+      </h2>
+      <p class="section-subtitle">
+        以下照片為往年鳳凰科技教師研習營活動剪影，2026 年度研習內容將在此基礎上持續調整與精進。
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <!-- 上傳並命名為 talk-ai.jpg -->
+          <img src="talk-ai.jpg" alt="AI 教育相關科技講座畫面" />
+          <div class="gallery-caption">科技講座：AI 與電機教育的課程設計思維</div>
+        </div>
+        <div class="gallery-item">
+          <!-- 上傳並命名為 group-2025.jpg -->
+          <img src="group-2025.jpg" alt="成大電機系鳳凰科技教師研習營與會教師合照" />
+          <div class="gallery-caption">鳳凰科技教師研習營合影 · 於電機系館前</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 聯絡與主辦資訊 ===== -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">
+        <span class="bar"></span> CONTACT · 聯絡與主辦單位
+      </h2>
+
+      <div class="card info-pairs">
+        <div>
+          <h3>聯絡窗口</h3>
+          <p><strong>承辦人：</strong>蕭小姐</p>
+          <p><strong>電話：</strong>06-2757575 ext.62301</p>
+          <p><strong>E-mail：</strong>z11108176@ncku.edu.tw</p>
+          <p><strong>地址：</strong>701401 台南市東區大學路 1 號，自強校區電機工程學系辦公室</p>
+        </div>
+        <div>
+          <h3>主辦與協辦</h3>
+          <p><strong>主辦單位：</strong>國立成功大學電機工程學系</p>
+          <p><strong>協辦單位：</strong>財團法人成電文教基金會</p>
+          <p>
+            <strong>系所官網：</strong>
             <a href="https://www.ee.ncku.edu.tw/" target="_blank" rel="noopener noreferrer">
               https://www.ee.ncku.edu.tw/
             </a>
           </p>
         </div>
-        <div class="card">
-          <h3>成大電機系友會</h3>
-          <p>與畢業系友的連結與活動資訊。</p>
-          <p>
-            <a href="https://eealum.ee.ncku.edu.tw/" target="_blank" rel="noopener noreferrer">
-              https://eealum.ee.ncku.edu.tw/
-            </a>
-          </p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- 聯絡我們 -->
-  <section id="contact" class="light-section">
-    <div class="section-inner">
-      <h2 class="section-title">聯絡我們</h2>
-      <div class="two-col">
-        <div>
-          <p><strong>承辦人：</strong>蕭小姐</p>
-          <p><strong>聯絡電話：</strong>06-2757575 ext.62301</p>
-          <p><strong>E-mail：</strong>z11108176@ncku.edu.tw</p>
-        </div>
-        <div>
-          <p><strong>辦公室地址：</strong></p>
-          <p>國立成功大學電機工程學系</p>
-          <p>台南市東區大學路 1 號（自強校區 電機系館）</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
         <div>
-          <h3>鳳凰科技教師研習營</h3>
-          <p>點燃學生的科技想像，也為教師帶回新的教學能量。</p>
+          2026 鳳凰科技教師研習營 · 國立成功大學電機工程學系
         </div>
         <div class="footer-links">
-          <h3>快速連結</h3>
-          <a href="#about">關於研習營</a>
-          <a href="#curriculum">課程介紹</a>
+          <a href="#top">回到頁首</a>
           <a href="#info">活動資訊</a>
-          <a href="#register">立即報名</a>
+          <a href="#register">報名方式</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        主辦單位：國立成功大學電機工程學系　
-        協辦單位：財團法人成電文教基金會　
-        活動時間：115/1/28(Wed.) - 1/29(Thu.)<br />
-        © 2026 鳳凰科技研習營 All Rights Reserved.
+      <div>
+        活動時間：115 / 1 / 28（Wed.）– 115 / 1 / 29（Thu.）　
+        研習地點：國立成功大學自強校區電機系館　
+        本網頁內容僅供研習資訊公告，實際規劃以系辦公告為準。
       </div>
     </div>
   </footer>
