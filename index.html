@@ -11,16 +11,19 @@
   <style>
     :root {
       --ee-red: #8e0000;
-      --ee-orange: #ff8a4a;
+      --ee-orange: #f97316;
       --ee-blue: #2563eb;
-      --bg-body: #050816;
-      --bg-section: #0b1020;
-      --bg-card: #111827;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-soft: #1f2937;
+
+      --bg-page: #f3f4f6;
+      --bg-section: #ffffff;
+      --bg-card: #ffffff;
+
+      --text-main: #111827;
+      --text-muted: #4b5563;
+
+      --border-soft: #e5e7eb;
       --radius-lg: 16px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -31,7 +34,7 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
         "Microsoft JhengHei", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      background: var(--bg-page);
       color: var(--text-main);
       line-height: 1.7;
     }
@@ -46,13 +49,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(
-        90deg,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.9)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-soft);
     }
 
     .nav-inner {
@@ -73,26 +72,27 @@
       font-weight: 700;
       font-size: 1.02rem;
       letter-spacing: 0.04em;
+      color: #111827;
     }
 
     .brand-mark {
       width: 30px;
       height: 30px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #ffe4e6 0, #fb7185 40%, #7f1d1d 100%);
+      background: radial-gradient(circle at 30% 30%, #fee2e2 0, #f97373 40%, #b91c1c 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.85rem;
       color: #fef2f2;
-      box-shadow: 0 0 0 2px rgba(148, 27, 53, 0.9);
+      box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.6);
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.88rem;
+      gap: 6px;
+      font-size: 0.86rem;
     }
 
     nav a {
@@ -103,8 +103,8 @@
     }
 
     nav a:hover {
-      background: rgba(37, 99, 235, 0.12);
-      color: #e5e7eb;
+      background: rgba(37, 99, 235, 0.08);
+      color: #1f2937;
       transform: translateY(-1px);
     }
 
@@ -116,6 +116,11 @@
     .section-inner {
       max-width: 1120px;
       margin: 0 auto;
+      background: var(--bg-section);
+      border-radius: 20px;
+      padding: 24px 20px 26px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(229, 231, 235, 0.8);
     }
 
     h2.section-title {
@@ -123,7 +128,7 @@
       font-size: 1.4rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #f9fafb;
+      color: #111827;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -154,8 +159,8 @@
 
     /* ===== Hero ===== */
     .hero {
-      padding: 40px 16px 32px;
-      background: radial-gradient(circle at top left, #1d283a 0, #020617 55%, #000 100%);
+      padding: 32px 16px 28px;
+      background: linear-gradient(to bottom, #ffffff 0, #f3f4f6 50%, #e5e7eb 100%);
     }
 
     .hero-inner {
@@ -167,6 +172,14 @@
       align-items: center;
     }
 
+    .hero-inner > div:first-child {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 22px 20px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
     .kicker {
       display: inline-flex;
       align-items: center;
@@ -174,9 +187,9 @@
       padding: 3px 10px;
       border-radius: 999px;
       font-size: 0.8rem;
-      background: rgba(37, 99, 235, 0.12);
-      color: #bfdbfe;
-      border: 1px solid rgba(59, 130, 246, 0.35);
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
       margin-bottom: 10px;
     }
 
@@ -191,12 +204,13 @@
       font-size: 2.1rem;
       margin: 0 0 6px;
       letter-spacing: 0.12em;
+      color: #111827;
     }
 
     .hero-subtitle {
       margin: 0 0 16px;
       font-size: 1.02rem;
-      color: #e5e7eb;
+      color: #1f2937;
     }
 
     .hero-note {
@@ -215,8 +229,8 @@
     .btn-primary {
       padding: 9px 18px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--ee-orange), var(--ee-red));
-      color: #111827;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
       font-size: 0.9rem;
       font-weight: 600;
       border: none;
@@ -224,7 +238,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 10px 30px rgba(248, 113, 113, 0.35);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
     }
 
     .btn-primary:hover {
@@ -235,9 +249,9 @@
     .btn-secondary {
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-main);
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      color: #111827;
       font-size: 0.86rem;
       cursor: pointer;
       display: inline-flex;
@@ -246,7 +260,7 @@
     }
 
     .btn-secondary:hover {
-      background: rgba(31, 41, 55, 0.95);
+      background: #f9fafb;
     }
 
     .hero-meta {
@@ -270,9 +284,9 @@
       font-size: 0.78rem;
       padding: 2px 9px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.85);
-      color: #e5e7eb;
+      background: #f9fafb;
+      border: 1px solid #d1d5db;
+      color: #374151;
     }
 
     .badge-dot {
@@ -290,8 +304,8 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      background: radial-gradient(circle at top, #f97316 0, #7c2d12 40%, #020617 100%);
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
       min-height: 210px;
       display: flex;
       align-items: center;
@@ -307,18 +321,18 @@
     .hero-tag {
       position: absolute;
       bottom: -12px;
-      left: 12px;
+      left: 8px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid #e5e7eb;
       font-size: 0.78rem;
       color: var(--text-muted);
-      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
     }
 
     .hero-tag strong {
-      color: #e5e7eb;
+      color: #111827;
     }
 
     /* ===== Cards & lists ===== */
@@ -328,14 +342,14 @@
       border: 1px solid var(--border-soft);
       padding: 16px 18px;
       font-size: 0.9rem;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+      box-shadow: var(--shadow-soft);
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 8px;
       font-size: 1rem;
-      color: #f9fafb;
+      color: #111827;
     }
 
     .pill {
@@ -346,9 +360,9 @@
       border-radius: 999px;
       font-size: 0.78rem;
       margin-bottom: 6px;
-      background: rgba(37, 99, 235, 0.13);
-      color: #bfdbfe;
-      border: 1px solid rgba(59, 130, 246, 0.5);
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
     }
 
     .pill-dot {
@@ -379,7 +393,7 @@
       font-size: 0.96rem;
       font-weight: 600;
       margin-bottom: 6px;
-      color: #e5e7eb;
+      color: #111827;
     }
 
     table.schedule {
@@ -392,13 +406,13 @@
     .schedule th,
     .schedule td {
       padding: 6px 6px;
-      border-bottom: 1px solid rgba(55, 65, 81, 0.7);
+      border-bottom: 1px solid #e5e7eb;
       vertical-align: top;
     }
 
     .schedule th {
       font-weight: 500;
-      color: #e5e7eb;
+      color: #111827;
       text-align: left;
     }
 
@@ -409,7 +423,7 @@
     .schedule-time {
       white-space: nowrap;
       font-weight: 500;
-      color: #e5e7eb;
+      color: #111827;
     }
 
     /* ===== Register / gallery / contact ===== */
@@ -437,8 +451,8 @@
       width: 150px;
       height: 150px;
       border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
       padding: 8px;
     }
 
@@ -452,8 +466,9 @@
       position: relative;
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+      border: 1px solid #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      background: #ffffff;
     }
 
     .gallery-item img {
@@ -472,10 +487,11 @@
       font-size: 0.78rem;
       background: linear-gradient(
         to top,
-        rgba(15, 23, 42, 0.9),
-        rgba(15, 23, 42, 0.4),
+        rgba(17, 24, 39, 0.82),
+        rgba(17, 24, 39, 0.35),
         transparent
       );
+      color: #f9fafb;
     }
 
     .info-pairs {
@@ -492,12 +508,12 @@
 
     /* ===== Footer ===== */
     footer {
-      border-top: 1px solid rgba(55, 65, 81, 0.85);
-      margin-top: 40px;
-      padding: 20px 16px 18px;
-      background: #020617;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 28px;
+      padding: 18px 16px 18px;
+      background: #ffffff;
       font-size: 0.8rem;
-      color: #9ca3af;
+      color: #6b7280;
     }
 
     .footer-inner {
@@ -517,12 +533,12 @@
 
     .footer-links a {
       margin-right: 10px;
-      color: #9ca3af;
+      color: #6b7280;
       font-size: 0.8rem;
     }
 
     .footer-links a:hover {
-      color: #e5e7eb;
+      color: #111827;
       text-decoration: underline;
     }
 
@@ -532,7 +548,13 @@
         grid-template-columns: minmax(0, 1fr);
       }
       .hero {
-        padding-top: 28px;
+        padding-top: 24px;
+      }
+      .hero-inner > div:first-child {
+        order: 2;
+      }
+      .hero-media {
+        order: 1;
       }
     }
 
@@ -548,6 +570,9 @@
       }
       .hero-title {
         font-size: 1.7rem;
+      }
+      .section-inner {
+        padding: 20px 16px 22px;
       }
     }
   </style>
@@ -581,7 +606,9 @@
           高中教師專屬 · 兩天一夜電機與科技教育研習
         </div>
         <h1 class="hero-title">2026 鳳凰科技教師研習營</h1>
-        <p class="hero-subtitle">從電機到 AI，協助高中教師掌握電資新趨勢，帶回可落實於課堂的實作課程與教材。</p>
+        <p class="hero-subtitle">
+          從電機到 AI，協助高中教師掌握電資新趨勢，帶回可落實於課堂的實作課程與教材。
+        </p>
         <p class="hero-note">
           研習結合理論簡報、科技講座、實驗室參訪與 DIY 藍芽音響課程，讓教師在兩天內完整認識成大電機系的教學與研究環境，也能直接感受到學生在大學所接觸的科技領域。
         </p>
@@ -610,7 +637,7 @@
 
       <div class="hero-media">
         <div class="hero-banner">
-          <!-- 請將 2026 教師營海報圖檔上傳並命名為 banner-2026.png -->
+          <!-- 2026 教師營海報圖：banner-2026.png -->
           <img src="banner-2026.png" alt="2026 鳳凰科技教師研習營主視覺" />
         </div>
         <div class="hero-tag">
@@ -920,7 +947,7 @@
               rel="noopener noreferrer"
               class="btn-primary"
             >
-              前往報名表單（請換成實際連結）
+              前往 Google 報名表單
             </a>
           </p>
           <p class="register-note">
@@ -930,7 +957,7 @@
         </div>
 
         <div class="qr-wrapper">
-          <!-- 請將報名 QR code 圖片上傳並命名為 register-qr.png -->
+          <!-- 報名 QR code 圖片：register-qr.png -->
           <img src="register-qr.png" alt="2026 鳳凰科技教師研習營報名 QR code" />
           <div style="margin-top:6px;">手機掃描 QR code 即可快速報名</div>
         </div>
@@ -950,12 +977,12 @@
 
       <div class="gallery-grid">
         <div class="gallery-item">
-          <!-- 上傳並命名為 talk-ai.jpg -->
+          <!-- 講座照片：talk-ai.jpg -->
           <img src="talk-ai.jpg" alt="AI 教育相關科技講座畫面" />
           <div class="gallery-caption">科技講座：AI 與電機教育的課程設計思維</div>
         </div>
         <div class="gallery-item">
-          <!-- 上傳並命名為 group-2025.jpg -->
+          <!-- 合照照片：group-2025.jpg -->
           <img src="group-2025.jpg" alt="成大電機系鳳凰科技教師研習營與會教師合照" />
           <div class="gallery-caption">鳳凰科技教師研習營合影 · 於電機系館前</div>
         </div>
@@ -1015,4 +1042,3 @@
   </footer>
 </body>
 </html>
-
